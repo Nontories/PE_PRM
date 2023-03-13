@@ -9,17 +9,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.pe.dto.CarDTO;
-import com.example.pe.provider.CarProvider;
+import com.example.pe.dto.ClockDTO;
+import com.example.pe.provider.ClockProvider;
 
 public class DataAdapter extends SQLiteOpenHelper {
 
     private ContentResolver contentResolver;
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "CarSQLite";
-    public static final String TABLE_NAME = "Cars";
+    private static final String DATABASE_NAME = "ClockSQLite";
+    public static final String TABLE_NAME = "Clocks";
     public static final String COLUMN_ID = "id";
-    public static final String COLUMN_NAME = "model";
+    public static final String COLUMN_NAME = "name";
     public static final String COLUMN_PRICE = "price";
 
     public DataAdapter(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -29,12 +29,12 @@ public class DataAdapter extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_CARS_TABLE = "CREATE TABLE " +
+        String CREATE_CLOCKS_TABLE = "CREATE TABLE " +
                 TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT NOT NULL, " +
                 COLUMN_PRICE + " INTEGER NOT NULL)";
-        sqLiteDatabase.execSQL(CREATE_CARS_TABLE);
+        sqLiteDatabase.execSQL(CREATE_CLOCKS_TABLE);
     }
 
     @Override
@@ -66,18 +66,18 @@ public class DataAdapter extends SQLiteOpenHelper {
         return result;
     }
 
-    public void addDataAdapter(CarDTO car) {
+    public void addDataAdapter(ClockDTO clock) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME,  car.getModel());
-        values.put(COLUMN_PRICE, car.getPrice());
-        contentResolver.insert(CarProvider.CONTENT_URI, values);
+        values.put(COLUMN_NAME,  clock.getName());
+        values.put(COLUMN_PRICE, clock.getPrice());
+        contentResolver.insert(ClockProvider.CONTENT_URI, values);
     }
 
 
     public boolean deleteDataAdapter(int id){
         boolean result = false;
         String selection ="ID = \"" + id + "\"";
-        int rowDeleted = contentResolver.delete(CarProvider.CONTENT_URI, selection,null);
+        int rowDeleted = contentResolver.delete(ClockProvider.CONTENT_URI, selection,null);
         if (rowDeleted > 0) {
             result = true;
         }
@@ -92,7 +92,7 @@ public class DataAdapter extends SQLiteOpenHelper {
         boolean result = false;
         String selection = "ID = \"" + ID + "\"";
         int rowsUpdated =
-                contentResolver.update(CarProvider.CONTENT_URI,args,selection,null);
+                contentResolver.update(ClockProvider.CONTENT_URI,args,selection,null);
         if (rowsUpdated > 0)
             result = true;
         return result;

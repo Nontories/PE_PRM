@@ -14,19 +14,19 @@ import androidx.annotation.Nullable;
 
 import com.example.pe.adapter.DataAdapter;
 
-public class CarProvider extends ContentProvider {
+public class ClockProvider extends ContentProvider {
 
-    private static final String AUTHORITY ="com.example.pe.provider.CarProvider";
+    private static final String AUTHORITY ="com.example.pe.provider.ClockProvider";
     private static final String TABLE_NAME = "Cars";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/"+TABLE_NAME);
 
 
-    public static final int CarS = 1;
-    public static final int Car_ID = 2;
+    public static final int ClockS = 1;
+    public static final int Clock_ID = 2;
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static{
-        uriMatcher.addURI(AUTHORITY, TABLE_NAME, CarS);
-        uriMatcher.addURI(AUTHORITY,TABLE_NAME + "/#", Car_ID);
+        uriMatcher.addURI(AUTHORITY, TABLE_NAME, ClockS);
+        uriMatcher.addURI(AUTHORITY,TABLE_NAME + "/#", Clock_ID);
     }
 
     private DataAdapter myAdapter;
@@ -44,10 +44,10 @@ public class CarProvider extends ContentProvider {
         queryBuilder.setTables(DataAdapter.TABLE_NAME);
         int uriType = uriMatcher.match(uri);
         switch (uriType) {
-            case Car_ID:
+            case Clock_ID:
                 queryBuilder.appendWhere(DataAdapter.COLUMN_ID + "=" + uri.getLastPathSegment());
                 break;
-            case CarS:
+            case ClockS:
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI");
@@ -71,7 +71,7 @@ public class CarProvider extends ContentProvider {
         SQLiteDatabase sqlDB = myAdapter.getWritableDatabase();
         long id = 0;
         switch (uriType) {
-            case CarS:
+            case ClockS:
                 id = sqlDB.insert(myAdapter.TABLE_NAME,null, contentValues);
                 break;
             default:
@@ -87,11 +87,11 @@ public class CarProvider extends ContentProvider {
         SQLiteDatabase sqlDB = myAdapter.getWritableDatabase();
         int rowsDeleted = 0;
         switch (uriType) {
-            case CarS:
+            case ClockS:
                 rowsDeleted = sqlDB.delete(myAdapter.TABLE_NAME, s,
                         strings);
                 break;
-            case Car_ID:
+            case Clock_ID:
                 String id = uri.getLastPathSegment();
                 if (TextUtils.isEmpty(s)) {
                     rowsDeleted = sqlDB.delete(DataAdapter.TABLE_NAME,
@@ -115,11 +115,11 @@ public class CarProvider extends ContentProvider {
         SQLiteDatabase sqlDB = myAdapter.getWritableDatabase();
         int rowsUpdated = 0;
         switch (uriType) {
-            case CarS:
+            case ClockS:
                 rowsUpdated = sqlDB.update(DataAdapter.TABLE_NAME,contentValues,
                         s, strings);
                 break;
-            case Car_ID:
+            case Clock_ID:
                 String id = uri.getLastPathSegment();
                 if (TextUtils.isEmpty(s)) {
                     rowsUpdated = sqlDB.update(DataAdapter.TABLE_NAME,

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete Car"
+        android:text="Delete Clock"
         android:textStyle="bold"
         android:textSize="25dp"
         android:gravity="center"

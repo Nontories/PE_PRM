@@ -1,19 +1,19 @@
 package com.example.pe.dto;
 
-public class CarDTO {
+public class ClockDTO {
 
     private int id;
-    private String model;
+    private String name;
     private int price;
 
-    public CarDTO(int id, String model, int price) {
+    public ClockDTO(int id, String name, int price) {
         this.id = id;
-        this.model = model;
+        this.name = name;
         this.price = price;
     }
 
-    public CarDTO(String model, int price) {
-        this.model = model;
+    public ClockDTO(String name, int price) {
+        this.name = name;
         this.price = price;
     }
 
@@ -25,12 +25,12 @@ public class CarDTO {
         this.id = id;
     }
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPrice() {

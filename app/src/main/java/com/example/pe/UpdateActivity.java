@@ -42,16 +42,16 @@ public class UpdateActivity extends AppCompatActivity {
                             Toast.makeText(this, "Please fill correctly!", Toast.LENGTH_LONG).show();
                         }
                     } catch (Exception e) {
-                        Toast.makeText(this, "Car not found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Clock not found", Toast.LENGTH_LONG).show();
                     }
                 }else {
-                    Toast.makeText(this, "Car price is required and must be greater than 0", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Clock price is required and must be greater than 0", Toast.LENGTH_LONG).show();
                 }
             }else {
-                Toast.makeText(this, "Car model is required", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Clock name is required", Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(this, "Car ID is required!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Clock ID is required!", Toast.LENGTH_LONG).show();
         }
     }
     public void backToHome(View view) {

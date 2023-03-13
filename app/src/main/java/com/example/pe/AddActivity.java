@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pe.adapter.DataAdapter;
-import com.example.pe.dto.CarDTO;
+import com.example.pe.dto.ClockDTO;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -30,7 +30,7 @@ public class AddActivity extends AppCompatActivity {
             if (!price.isEmpty() && Integer.parseInt(price) > 0) {
                 DataAdapter handler = new DataAdapter(this, null, null, 1);
                 System.out.println(price);
-                CarDTO product = new CarDTO(name, Integer.parseInt(price));
+                ClockDTO product = new ClockDTO(name, Integer.parseInt(price));
                 handler.addDataAdapter(product);
                 productName.setText("");
                 productPrice.setText("");

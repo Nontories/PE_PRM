@@ -27,8 +27,8 @@
         </activity>
 
         <provider
-            android:authorities="com.example.pe.provider.CarProvider"
-            android:name="com.example.pe.provider.CarProvider"
+            android:authorities="com.example.pe.provider.ClockProvider"
+            android:name="com.example.pe.provider.ClockProvider"
             android:enabled="true"
             android:exported="true">
         </provider>

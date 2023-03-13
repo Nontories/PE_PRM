@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, DeleteActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Doesn't have any car to delete!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Doesn't have any clock to delete!", Toast.LENGTH_SHORT).show();
         }
     }
     public void updateProduct(View view) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Doesn't have any car to update!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Doesn't have any clock to update!", Toast.LENGTH_SHORT).show();
         }
 
     }

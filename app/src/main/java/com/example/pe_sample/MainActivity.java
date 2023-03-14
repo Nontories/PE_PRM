@@ -1,6 +1,6 @@
 package com.example.pe_sample;
 
-import static com.example.pe_sample.ClockProvider.PROVIDER_URI;
+import static com.example.pe_sample.CarProvider.PROVIDER_URI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     TextView dataList;
-    TextView txtColumnName;
+    TextView txtColumnModel;
 
     ContentValues contentValues;
 
@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dataList = findViewById(R.id.txtData);
-        txtColumnName = findViewById(R.id.txtColumnName);
+        txtColumnModel = findViewById(R.id.txtColumnName);
         Uri uri = Uri.parse(PROVIDER_URI);
 
         Cursor cursor = getContentResolver().query(uri,
-                new String[]{"id","name", "price", }, null, null, null);
+                new String[]{"id","model", "price", }, null, null, null);
         Log.e("ee", cursor.getColumnName(2));
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void deleteProduct(View view) {
         dataList = findViewById(R.id.txtData);
-        txtColumnName = findViewById(R.id.txtColumnName);
+        txtColumnModel = findViewById(R.id.txtColumnName);
 
         if (!dataList.getText().toString().isEmpty()) {
             Intent intent = new Intent(MainActivity.this, DeleteActivity.class);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updateProduct(View view) {
         dataList = findViewById(R.id.txtData);
-        txtColumnName = findViewById(R.id.txtColumnName);
+        txtColumnModel = findViewById(R.id.txtColumnName);
         if (!dataList.getText().toString().isEmpty()) {
             Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
             startActivity(intent);

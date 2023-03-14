@@ -12,11 +12,11 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class ClockProvider extends ContentProvider {
-    final String DB = "ClockStore";
-    static final String PROVIDER = "com.example.pe_sample.ClockProvider";
-    static final String TABLE = "Clock";
-    final String NAME = "name";
+public class CarProvider extends ContentProvider {
+    final String DB = "CarStore";
+    static final String PROVIDER = "com.example.pe_sample.CarProvider";
+    static final String TABLE = "Car";
+    final String MODEL = "model";
     public static final String PROVIDER_URI = "content://"+PROVIDER+"/"+TABLE;
 
     final String ID = "id";
@@ -26,7 +26,7 @@ public class ClockProvider extends ContentProvider {
             "CREATE TABLE IF NOT EXISTS " + TABLE + "( " +
                     ID + " INTEGER NOT NULL PRIMARY KEY " +
                     "AUTOINCREMENT, " +
-                    NAME +" TEXT NOT NULL, " +
+                    MODEL +" TEXT NOT NULL, " +
                     PRICE + " INTEGER NOT NULL " +
                     ")";
     final int MyUriCode = 1;

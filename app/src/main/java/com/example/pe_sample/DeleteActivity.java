@@ -1,6 +1,6 @@
 package com.example.pe_sample;
 
-import static com.example.pe_sample.ClockProvider.PROVIDER_URI;
+import static com.example.pe_sample.CarProvider.PROVIDER_URI;
 
 import android.content.ContentValues;
 import android.content.Intent;

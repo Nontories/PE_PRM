@@ -1,6 +1,6 @@
 package com.example.pe_sample;
 
-import static com.example.pe_sample.ClockProvider.PROVIDER_URI;
+import static com.example.pe_sample.CarProvider.PROVIDER_URI;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UpdateActivity extends AppCompatActivity {
 
     EditText productId;
-    EditText productName;
+    EditText productModel;
     EditText productPrice;
     ContentValues contentValues;
     Uri uri;
@@ -24,42 +24,42 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
         productId = (EditText) findViewById(R.id.edit_id);
-        productName = (EditText) findViewById(R.id.edit_name);
+        productModel = (EditText) findViewById(R.id.edit_name);
         productPrice = (EditText) findViewById(R.id.edit_price);
     }
     public void updateData(View view) {
         String id = productId.getText().toString();
-        String name = productName.getText().toString();
+        String model = productModel.getText().toString();
         String price = productPrice.getText().toString();
         if (!id.isEmpty()) {
-            if (!name.isEmpty()) {
+            if (!model.isEmpty()) {
                 if (!price.isEmpty() && Integer.parseInt(price) > 0) {
                     try {
                         uri = Uri.parse(PROVIDER_URI);
 
                         contentValues = new ContentValues();
-                        contentValues.put("name", name);
+                        contentValues.put("model", model);
                         contentValues.put("price", price);
                         int rowsDeleted = getContentResolver().update(uri, contentValues, "id = ?", new String[]{id} );
                         if (rowsDeleted > 0) {
                             productId.setText("");
-                            productName.setText("");
+                            productModel.setText("");
                             productPrice.setText("");
                             Toast.makeText(this, "Update successfully!", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(this, "Please fill correctly!", Toast.LENGTH_LONG).show();
                         }
                     } catch (Exception e) {
-                        Toast.makeText(this, "Clock not found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Car not found", Toast.LENGTH_LONG).show();
                     }
                 }else {
-                    Toast.makeText(this, "Clock price is required and must be greater than 0", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Car price is required and must be greater than 0", Toast.LENGTH_LONG).show();
                 }
             }else {
-                Toast.makeText(this, "Clock name is required", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Car Model is required", Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(this, "Clock ID is required!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Car ID is required!", Toast.LENGTH_LONG).show();
         }
     }
     public void backToHome(View view) {

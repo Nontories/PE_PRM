@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            android:drawablePadding="-15dp"
+            android:drawableLeft="@drawable/ic_add"
+
+            android:onClick="addProduct"
+            android:text="Add Car" />
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDelete"
+            android:onClick="deleteProduct"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/ic_delete"
+            android:drawablePadding="-16dp"
+            android:text="Delete Car"/>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/ic_edit"
+            android:drawablePadding="-16dp"
+            android:onClick="updateProduct"
+            android:text="Update Car" />
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/txtColumnName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="ID        Name          Price"
+        android:visibility="gone"/>
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/txtData"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
